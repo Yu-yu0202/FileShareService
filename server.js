@@ -329,6 +329,7 @@ if (isDevelopment) {
 	const sslOptions = {
 		key: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/localhost.key')),
 		cert: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/localhost.crt')),
+		hostname: 'fileshare.yu-yu0202.f5.si'
 	};
 	// HTTPSサーバーの作成
 	const httpsServer = https.createServer(sslOptions, app);
@@ -336,7 +337,7 @@ if (isDevelopment) {
 	// HTTPSサーバーの起動
 	const PORT = process.env.PORT || 443;
 	httpsServer.listen(PORT, () => {
-		console.log(`HTTPSサーバーが起動しました: https://localhost:${PORT}/ ,ポートは: ${PORT}`);
+		console.log(`HTTPSサーバーが起動しました: https://${options.hostname}:${PORT}/ ,ポートは: ${PORT}`);
 		console.log(`現在は 開発モード で起動中です:外部からのアクセス用の証明書は読み込んでいません`);
 	});
 } else {
@@ -344,6 +345,7 @@ if (isDevelopment) {
 		key: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/key.pem')),
 		cert: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/cert.pem')),
 		ca: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/fullchain.pem')),
+		hostname: 'fileshare.yu-yu0202.f5.si'
 	};
 	// HTTPSサーバーの作成
 	const httpsServer = https.createServer(sslOptions, app);
@@ -351,7 +353,7 @@ if (isDevelopment) {
 	// HTTPSサーバーの起動
 	const PORT = process.env.PORT || 443;
 	httpsServer.listen(PORT, () => {
-		console.log(`HTTPSサーバーが起動しました: https://localhost:${PORT}/ ,ポートは: ${PORT}`);
+		console.log(`HTTPSサーバーが起動しました: https://${options.hostname}:${PORT}/ ,ポートは: ${PORT}`);
 	});
 }
 
@@ -362,6 +364,6 @@ httpApp.get('*', (req, res) => {
 	res.redirect(`https://${req.headers.host}${req.url}`);
 });
 const HTTP_PORT = process.env.HTTP_PORT || 80;
-http.createServer(httpApp).listen(HTTP_PORT, () => {
-	console.log(`リダイレクト用HTTPサーバーが起動しました: http://localhost:${HTTP_PORT} ,リダイレクト先は: https://localhost:443`);
+http.createServer(httpApp).listen(HTTP_PORT, 'fileshare.yu-yu0202.f5.si', () => {
+	console.log(`リダイレクト用HTTPサーバーが起動しました: http://fileshare.yu-yu0202.f5.si:${HTTP_PORT} ,リダイレクト先は: https://fileshare.yu-yu0202.f5.si:443`);
 });

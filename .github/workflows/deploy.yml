@@ -1,0 +1,33 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy to production
+        env:
+            DEPLOY_URL: https://FileShare.yu-yu0202.f5.si
+        run: |
+          mkdir -p ~/src/SSL-CERTIFICATE
+          echo "${{ secrets.SSL_KEYPEM }}" > ~/src/SSL-CERTIFICATE/key.pem
+          echo "${{ secrets.SSL_CERTPEM }}" > ~/src/SSL-CERTIFICATE/cert.pem
+          echo "${{ secrets.SSL_FULLCHAINPEM }}" > ~/src/SSL-CERTIFICATE/fullchain.pem
+          npm run deploy  # あなたの実際のデプロイスクリプトを実行するコマンド
+
