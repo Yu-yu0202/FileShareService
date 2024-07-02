@@ -23,7 +23,7 @@ jobs:
 
       - name: Deploy to production
         env:
-            DEPLOY_URL: https://FileShare.yu-yu0202.f5.si
+            DEPLOY_URL: https://fileshare.yu-yu0202.f5.si
         run: |
           mkdir -p ~/src/SSL-CERTIFICATE
           echo "${{ secrets.SSL_KEYPEM }}" > ~/src/SSL-CERTIFICATE/key.pem
