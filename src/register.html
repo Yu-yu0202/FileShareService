@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="register.js" defer></script>
+ 	<title>新しいユーザーの作成 - FileShareService</title>
+	<style>
+		body {
+			background-color: #f1f1f1;
+			font-family: Meiryo, sans-serif;
+		}
+
+		.container {
+			width: 50%;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+		}
+
+		h2 {
+			color: #007cba;
+			text-align: center;
+		}
+
+		.form-group {
+			margin-bottom: 15px;
+		}
+
+		.form-group label {
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		.form-group input {
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+		}
+
+		.form-group button {
+			width: 100%;
+			padding: 10px 20px;
+			background-color: #007cba;
+			color: #fff;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		.form-group button:hover {
+			background-color: #005f7d;
+		}
+
+		.message {
+			margin-top: 20px;
+			text-align: center;
+			color: #007cba;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>新しいユーザーの作成</h2>
+		<form id="registerForm">
+			<div class="form-group">
+				<label for="username">ユーザー名</label>
+				<input type="text" id="username" name="username" required>
+			</div>
+			<div class="form-group">
+				<label for="password">パスワード</label>
+				<input type="password" id="password" name="password" required>
+			</div>
+			<div class="form-group">
+				<button type="submit">作成</button>
+			</div>
+		</form>
+		<div class="message" id="message"></div>
+	</div>
+</body>
+</html>

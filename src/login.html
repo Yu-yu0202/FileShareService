@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="login.js" defer></script>
+	<title>Login - FileShareService</title>
+	<style>
+		body {
+			background-color: #f1f1f1;
+			font-family: Meiryo, sans-serif;
+		}
+
+		#main {
+			width: 50vw;
+			position: absolute;
+			top: 25%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+
+		.container {
+			width: 320px;
+			margin: 0 auto;
+			margin-top: 100px;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		h2 {
+			background-color: #007cba;
+			color: #fff;
+			text-align: center;
+			margin: 0;
+			padding: 10px 0;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+
+		form {
+			background-color: #fff;
+			padding: 20px;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		input[type="text"],
+		input[type="password"] {
+			width: 100%;
+			padding: 15px;
+			margin-bottom: 20px;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			box-sizing: border-box;
+		}
+
+		button[type="submit"] {
+			width: 100%;
+			padding: 15px;
+			background-color: #007cba;
+			color: #fff;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+			button[type="submit"]:hover {
+				background-color: #005f7d;
+			}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<h2>ログイン</h2>
+		<form id="loginForm" action="/login" method="POST">
+			<div>
+				<label for="username">ユーザー名</label>
+				<input type="text" id="username" name="username" required="" autocomplete="username">
+			</div>
+			<div>
+				<label for="password">パスワード</label>
+				<input type="password" id="password" name="password" required="">
+			</div>
+			<button type="submit">ログイン</button>
+		</form>
+	</div>
+</body>
+</html>

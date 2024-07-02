@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="filelist.js" defer></script>
+    <title>File List - FileShareService</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            font-family: Meiryo, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #007cba;
+        }
+
+        .file-list {
+            margin-top: 20px;
+        }
+
+            .file-list table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .file-list th, .file-list td {
+                padding: 10px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            .file-list th {
+                background-color: #007cba;
+                color: #fff;
+            }
+
+            .file-list td a {
+                color: #007cba;
+                text-decoration: none;
+            }
+
+                .file-list td a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>アップロードされたファイル一覧</h2>
+        <div class="file-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ファイル名</th>
+                        <th>アップロード日時</th>
+                        <th>アクション</th>
+                    </tr>
+                </thead>
+                <tbody id="fileList">
+                    <!-- ここにファイルのリストが挿入されます -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

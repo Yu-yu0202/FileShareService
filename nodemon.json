@@ -1,0 +1,8 @@
+{
+  "watch": [ "server.js", "nodemon.json", "package.json", "src", "src/login.html" ],
+  "ext": "js json html",
+  "ignore": [ "*.log", "node_modules/", "public/" ],
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
