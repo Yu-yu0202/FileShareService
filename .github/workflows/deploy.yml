@@ -47,7 +47,7 @@ jobs:
           SSL_KEY_PATH: /home/runner/src/SSL-CERTIFICATE/key.pem
           SSL_CERT_PATH: /home/runner/src/SSL-CERTIFICATE/cert.pem
         run: |
-          mkdir -p ~/src/SSL-CERTIFICATE
+          mkdir -p /home/runner/work/FileShareService/FileShareService/src/SSL-CERTIFICATE/
           echo "${{ secrets.SSL_KEYPEM }}" > /home/runner/work/FileShareService/FileShareService/src/SSL-CERTIFICATE/key.pem
           echo "${{ secrets.SSL_CERTPEM }}" > /home/runner/work/FileShareService/FileShareService/src/SSL-CERTIFICATE/cert.pem
           echo "${{ secrets.SSL_FULLCHAINPEM }}" > /home/runner/work/FileShareService/FileShareService/src/SSL-CERTIFICATE/fullchain.pem
