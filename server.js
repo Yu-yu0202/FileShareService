@@ -353,7 +353,7 @@ if (isDevelopment) {
 	// HTTPSサーバーの起動
 	const PORT = 1443;
 	httpsServer.listen(PORT, () => {
-		console.log(`HTTPSサーバーが起動しました: https://${options.hostname}:${PORT}/ ,ポートは: ${PORT}`);
+		console.log(`HTTPSサーバーが起動しました`);
 	});
 }
 
