@@ -32,7 +32,9 @@ jobs:
 
       - name: Create .env file
         run: | 
-          echo "ADMIN_PW=${{ secrets.ADMIN_PASSWOAD }}" > .env
+          echo "ADMIN_PW=$ADMIN_PW" > .env
+        env:
+          ADMIN_PW: ${{ secrets.ADMIN_PW }}
 
       - name: (debug) Output file&dir
         run: ls -la
