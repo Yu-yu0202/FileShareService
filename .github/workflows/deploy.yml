@@ -48,7 +48,7 @@ jobs:
           SSL_CERT_PATH: /home/runner/src/SSL-CERTIFICATE/cert.pem
         run: |
           mkdir -p ~/src/SSL-CERTIFICATE
-          echo "${{ secrets.SSL_KEYPEM }}" > ~/src/SSL-CERTIFICATE/key.pem
-          echo "${{ secrets.SSL_CERTPEM }}" > ~/src/SSL-CERTIFICATE/cert.pem
-          echo "${{ secrets.SSL_FULLCHAINPEM }}" > ~/src/SSL-CERTIFICATE/fullchain.pem
+          echo "${{ secrets.SSL_KEYPEM }}" > /home/runner/work/FileShareService/FileShareService/src/SSL-CERTIFICATE/key.pem
+          echo "${{ secrets.SSL_CERTPEM }}" > /home/runner/work/FileShareService/FileShareService/src/SSL-CERTIFICATE/cert.pem
+          echo "${{ secrets.SSL_FULLCHAINPEM }}" > /home/runner/work/FileShareService/FileShareService/src/SSL-CERTIFICATE/fullchain.pem
           npm run start
