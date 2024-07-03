@@ -335,7 +335,7 @@ if (isDevelopment) {
 	const httpsServer = https.createServer(sslOptions, app);
 
 	// HTTPSサーバーの起動
-	const PORT = process.env.PORT || 1443;
+	const PORT = 1443;
 	httpsServer.listen(PORT, () => {
 		console.log(`HTTPSサーバーが起動しました: https://${options.hostname}:${PORT}/ ,ポートは: ${PORT}`);
 		console.log(`現在は 開発モード で起動中です:外部からのアクセス用の証明書は読み込んでいません`);
@@ -351,7 +351,7 @@ if (isDevelopment) {
 	const httpsServer = https.createServer(sslOptions, app);
 
 	// HTTPSサーバーの起動
-	const PORT = process.env.PORT || 1443;
+	const PORT = 1443;
 	httpsServer.listen(PORT, () => {
 		console.log(`HTTPSサーバーが起動しました: https://${options.hostname}:${PORT}/ ,ポートは: ${PORT}`);
 	});
