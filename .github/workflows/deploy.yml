@@ -22,6 +22,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Create .env file
+        run: echo "ADMIN_PW=${{ secrets.ADMIN_PASSWOAD }}" >> .env
+
+      - name: (debug) Output .env file
+        run: cat .env
+        
       - name: Deploy to production
         env:
             DEPLOY_URL: https://fileshare.yu-yu0202.f5.si
@@ -30,5 +36,4 @@ jobs:
           echo "${{ secrets.SSL_KEYPEM }}" > ~/src/SSL-CERTIFICATE/key.pem
           echo "${{ secrets.SSL_CERTPEM }}" > ~/src/SSL-CERTIFICATE/cert.pem
           echo "${{ secrets.SSL_FULLCHAINPEM }}" > ~/src/SSL-CERTIFICATE/fullchain.pem
-          npm run start  # あなたの実際のデプロイスクリプトを実行するコマンド
-
+          npm run start
