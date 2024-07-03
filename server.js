@@ -342,9 +342,9 @@ if (isDevelopment) {
 	});
 } else {
 	const sslOptions = {
-		key: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/key.pem')),
-		cert: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/cert.pem')),
-		ca: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/fullchain.pem')),
+		key: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/key.pem')),
+		cert: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/cert.pem')),
+		ca: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/fullchain.pem')),
 		hostname: 'fileshare.yu-yu0202.f5.si'
 	};
 	// HTTPSサーバーの作成
