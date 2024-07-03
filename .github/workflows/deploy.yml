@@ -34,8 +34,8 @@ jobs:
         run: | 
           echo "ADMIN_PW=${{ secrets.ADMIN_PASSWOAD }}" > .env
 
-      - name: (debug) Output .env file
-        run: cat .env
+      - name: (debug) Output file&dir
+        run: ls
         
       - name: Deploy to production
         env:
