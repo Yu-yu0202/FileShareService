@@ -356,14 +356,3 @@ if (isDevelopment) {
 		console.log(`HTTPSサーバーが起動しました`);
 	});
 }
-
-// HTTPからHTTPSへのリダイレクト
-const http = require('http');
-const httpApp = express();
-httpApp.get('*', (req, res) => {
-	res.redirect(`https://${req.headers.host}${req.url}`);
-});
-const HTTP_PORT = process.env.HTTP_PORT || 8080;
-http.createServer(httpApp).listen(HTTP_PORT, 'fileshare.yu-yu0202.f5.si', () => {
-	console.log(`リダイレクト用HTTPサーバーが起動しました: http://fileshare.yu-yu0202.f5.si:${HTTP_PORT} ,リダイレクト先は: https://fileshare.yu-yu0202.f5.si:443`);
-});
