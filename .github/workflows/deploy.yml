@@ -32,16 +32,20 @@ jobs:
 
       - name: Create .env file
         run: | 
-          echo "ADMIN_PW=$ADMIN_PW" > .env
+          echo "PORT=443" >> .env
+          echo "HOSTNAME=localhost" >> .env
+          echo "ADMIN_PW=$ADMIN_PW" >> .env
         env:
           ADMIN_PW: ${{ secrets.ADMIN_PW }}
 
       - name: (debug) Output file&dir
         run: ls -la
-        
+
       - name: Deploy to production
         env:
-            DEPLOY_URL: https://fileshare.yu-yu0202.f5.si
+          DEPLOY_URL: https://fileshare.yu-yu0202.f5.si
+          SSL_KEY_PATH: /home/runner/src/SSL-CERTIFICATE/key.pem
+          SSL_CERT_PATH: /home/runner/src/SSL-CERTIFICATE/cert.pem
         run: |
           mkdir -p ~/src/SSL-CERTIFICATE
           echo "${{ secrets.SSL_KEYPEM }}" > ~/src/SSL-CERTIFICATE/key.pem
