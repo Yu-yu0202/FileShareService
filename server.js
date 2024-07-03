@@ -327,8 +327,8 @@ app.get('/dashboard/userinfo', requireLogin, (req, res) => {
 // SSL証明書の読み込み
 if (isDevelopment) {
 	const sslOptions = {
-		key: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/localhost.key')),
-		cert: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/localhost.crt')),
+		key: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/localhost.key')),
+		cert: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/localhost.crt')),
 		hostname: 'fileshare.yu-yu0202.f5.si'
 	};
 	// HTTPSサーバーの作成
@@ -342,9 +342,9 @@ if (isDevelopment) {
 	});
 } else {
 	const sslOptions = {
-		key: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/key.pem')),
-		cert: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/cert.pem')),
-		ca: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/fullchain.pem')),
+		key: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/key.pem')),
+		cert: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/cert.pem')),
+		ca: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/fullchain.pem')),
 		hostname: 'fileshare.yu-yu0202.f5.si'
 	};
 	// HTTPSサーバーの作成
