@@ -325,34 +325,17 @@ app.get('/dashboard/userinfo', requireLogin, (req, res) => {
 });
 
 // SSL証明書の読み込み
-if (isDevelopment) {
-	const sslOptions = {
-		key: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/localhost.key')),
-		cert: fs.readFileSync(path.resolve(__dirname, '~/src/SSL-CERTIFICATE/localhost.crt')),
-		hostname: 'fileshare.yu-yu0202.f5.si'
-	};
-	// HTTPSサーバーの作成
-	const httpsServer = https.createServer(sslOptions, app);
+const sslOptions = {
+	key: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/key.pem')),
+	cert: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/cert.pem')),
+	ca: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/fullchain.pem')),
+	hostname: 'file-share.yu-yu0202.f5.si'
+};
+// HTTPSサーバーの作成
+const httpsServer = https.createServer(sslOptions, app);
 
-	// HTTPSサーバーの起動
-	const PORT = 1443;
-	httpsServer.listen(PORT, () => {
-		console.log(`HTTPSサーバーが起動しました: https://${options.hostname}:${PORT}/ ,ポートは: ${PORT}`);
-		console.log(`現在は 開発モード で起動中です:外部からのアクセス用の証明書は読み込んでいません`);
-	});
-} else {
-	const sslOptions = {
-		key: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/key.pem')),
-		cert: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/cert.pem')),
-		ca: fs.readFileSync(path.resolve(__dirname, 'src/SSL-CERTIFICATE/fullchain.pem')),
-		hostname: 'fileshare.yu-yu0202.f5.si'
-	};
-	// HTTPSサーバーの作成
-	const httpsServer = https.createServer(sslOptions, app);
-
-	// HTTPSサーバーの起動
-	const PORT = 1443;
-	httpsServer.listen(PORT, () => {
-		console.log(`HTTPSサーバーが起動しました`);
-	});
-}
+// HTTPSサーバーの起動
+const PORT = 1443;
+httpsServer.listen(PORT, () => {
+	console.log(`HTTPSサーバーが起動しました`);
+});
