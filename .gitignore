@@ -377,4 +377,4 @@ src/SSL-CERTIFICATE/*.*
 .vscode/
 
 # users db
-users.db
+users.db 
