@@ -1,55 +1,55 @@
 # FileShareService
-�V���v����GUI�Ńt�@�C���̃A�b�v���[�h�A�_�E�����[�h�������O�C�����ōs�����Ƃ��ł���Node.js�A�v���P�[�V�����ł��B
+シンプルなGUIでファイルのアップロード、ダウンロード等をログイン制で行うことができるNode.jsアプリケーションです。
 
 ---
 
-## ����
-- ���[�U�[�o�^�A���O�C���@�\
-- �t�@�C���̃A�b�v���[�h�A�_�E�����[�h�@�\
-- �Ǘ��҂ɂ��t�@�C���̉����Ǘ�(beta�ł̂��ߒ񋟂͂��Ă��܂��񂪃G���h�|�C���g�͈ꉞ����܂�)
-- HTTPS�ɂ��Z�L���A�ȒʐM
-- Express-Session��p�����Z�b�V�����Ǘ�
+## 特徴
+- ユーザー登録、ログイン機能
+- ファイルのアップロード、ダウンロード機能
+- 管理者によるファイルの可視性管理(beta版のため提供はしていませんがエンドポイントは一応あります)
+- HTTPSによるセキュアな通信
+- Express-Sessionを用いたセッション管理
 
-## �O�����
-�ȉ��̃\�t�g�E�F�A���C���X�g�[������Ă���K�v������܂�:
-- Node.js(Ver:16.x.x�ȏ�)
-- npm(Node.js�t��)
-- Git(CUI�ł�GUI�ł�GitHub Desktop�ł��l�b�g����R�[�h���������Ă��Ă������ł�)
+## 前提条件
+以下のソフトウェアがインストールされている必要があります:
+- Node.js(Ver:16.x.x以上)
+- npm(Node.js付随)
+- Git(CUIでもGUIでもGitHub Desktopでもネットからコード引っ張ってきてもいいです)
 
-## �C���X�g�[��
-### ���|�W�g���̃N���[��
-Github Desktop�ł�����R�[�h�����������Ă���l�̓X�L�b�v���Ă�������
+## インストール
+### リポジトリのクローン
+コードを引っ張ってくる人はスキップしてください
 ```sh
 $ git clone https://github.com/yu-yu0202/FileShareService.git
 $ cd FileShareService
 ```
-### �ˑ��֌W�̃C���X�g�[��
+### 依存関係のインストール
 ```sh
 $ npm install
 $ npm install --save-dev cross-env nodemon
 ```
-### SSL�ؖ����̏���
-[SSL�Ȃ�!(v2)](https://sslnow.16mhz.net)���������߂ł��B
-src�t�H���_�ɁuSSL-CERTIFICATE�v�Ƃ����t�H���_���쐬���A���̒��ɓ���Ă��������B
-### ���ϐ��̐ݒ�
-.env �t�@�C����ݒ肵�܂��B���e�͊e���ύX���Ă��������B
+### SSL証明書の準備
+[SSLなう!(v2)](https://sslnow.16mhz.net)がおすすめです。
+srcフォルダに「SSL-CERTIFICATE」というフォルダを作成し、その中に入れてください。
+### 環境変数の設定
+.env ファイルを設定します。内容は各自変更してください。
 ```sh
 $ echo "ADMIN_PW= Password_here" > .env
 ```
-### �J�����ł̎��s
-�J�����ł́A�ȉ��̃R�}���h�ŃT�[�o�[���N�����܂�:
+### 開発環境での実行
+開発環境では、以下のコマンドでサーバーを起動します:
 ```sh
 $ npm run dev
 ```
-### �{�Ԋ��ł̃f�v���C
-���̃A�v���P�[�V�����́AGithubActions�Ŏ��s���邱�Ƃ͂����߂ł��܂��� ~~�i�A�z�݂����ɗ���������܂��A�����j~~
+### 本番環境でのデプロイ
+このアプリケーションは、GithubActionsで実行することはお勧めできません ~~（アホみたいに料金かかります、多分）~~
 
-�l�I�Ȃ������߂́AOCI�iAlways Free�g�j�́AAMD E4 Flex�C���X�^���X�A�܂���Arm�x�[�X�C���X�^���X�ł��B
-### ���C�Z���X
-���̃A�v���P�[�V�����́AAGPL v3 ���C�Z���X�̉��Ō��J����Ă��܂��B�ڍׂɂ��ẮuLICENSE.md�v�t�@�C�����Q�Ƃ��Ă��������B
-### �v��
-�o�O��(Issue)��@�\���N�G�X�g�A�v�����N�G�X�g�͑劽�}�ł��B
-### ���
-- ���O�F��[��[
+個人的なおすすめは、OCI（Always Free枠）の、AMD E4 Flexインスタンス、またはArmベースインスタンスです。
+### ライセンス
+このアプリケーションは、AGPL v3 ライセンスの下で公開されています。詳細については「LICENSE.md」ファイルを参照してください。
+### 貢献
+バグ報告(Issue)や機能リクエスト、プルリクエストは大歓迎です。
+### 作者
+- 名前：ゆーゆー
 - Github:[Yu-yu0202](https://github.com/yu-yu0202)
 #### ~~~ Powered by ChatGPT ~~~
