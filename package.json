@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "1.0.0",
+  "version": "beta0.0.1",
   "description": "server",
   "main": "server.js",
   "author": {
