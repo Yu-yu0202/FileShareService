@@ -41,10 +41,6 @@ $ echo "ADMIN_PW= Password_here" > .env
 ```sh
 $ npm run dev
 ```
-### 本番環境でのデプロイ
-このアプリケーションは、GithubActionsで実行することはお勧めできません ~~（アホみたいに料金かかります、多分）~~
-
-個人的なおすすめは、OCI（Always Free枠）の、AMD E4 Flexインスタンス、またはArmベースインスタンスです。
 ### ライセンス
 このアプリケーションは、AGPL v3 ライセンスの下で公開されています。詳細については「LICENSE.md」ファイルを参照してください。
 ### 貢献
